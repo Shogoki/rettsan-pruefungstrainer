@@ -13,8 +13,8 @@
     { id: "mc", name: "Multiple Choice",
       desc: "Nur Ankreuzfragen mit genau einer richtigen Antwort. Wird automatisch ausgewertet.",
       tag: "1 Pkt." },
-    { id: "pruefung", name: "Standortbestimmung",
-      desc: "Gemischter Bogen unter Zeitdruck: Wo stehe ich? Multiple Choice und offene Fragen, Anteil frei wählbar.",
+    { id: "pruefung", name: "Prüfungssimulation",
+      desc: "Gemischter Bogen unter Zeit: Multiple Choice und offene Fragen, Anteil frei wählbar.",
       tag: "120 Min." },
   ];
 
@@ -164,7 +164,7 @@
       "</fieldset>" +
 
       '<button class="btn primary" id="btnStart" style="width:100%; padding:12px; justify-content:center"' +
-      (pool.length ? "" : " disabled") + ">" + (set.mode === "pruefung" ? "Standortbestimmung starten" : "Übung starten") + "</button>" +
+      (pool.length ? "" : " disabled") + ">" + (set.mode === "pruefung" ? "Prüfung starten" : "Übung starten") + "</button>" +
 
       '<div class="note"><strong>Hessen (APORettSan):</strong> die schriftliche Prüfung ist eine ' +
       "Aufsichtsarbeit von 120 Minuten und ist bestanden, wenn sie mindestens mit „ausreichend“ " +

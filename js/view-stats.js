@@ -100,7 +100,7 @@
   }
 
   function modeName(m) {
-    return { pruefung: "Standortbestimmung", offen: "Offene Fragen", mc: "Multiple Choice" }[m] || m;
+    return { pruefung: "Prüfungssimulation", offen: "Offene Fragen", mc: "Multiple Choice" }[m] || m;
   }
 
   function topicRow(t) {

@@ -84,6 +84,17 @@ Link und öffnet das PDF direkt auf der passenden Seite.
 > jedem Browser funktionieren. Umlaute und Leerzeichen in URLs sind dort erfahrungsgemäß
 > eine Fehlerquelle.
 
+### Eine bewusste Abweichung von der Vorlage
+
+`RetSan Der Körper.pdf` nennt auf S. 13 als Indikation für **Noradrenalin** „schwere
+Hypertonie, Schock“. Noradrenalin ist ein Katecholamin und *hebt* den Blutdruck – die
+Indikation ist die Hypo­tonie. Der Fragenkatalog schreibt deshalb „schwere Hypotonie,
+Schock“. Wenn im Unterricht die Formulierung der Zusammenfassung gilt, bitte dort ändern:
+`js/data/open.js`, Frage „Noradrenalin: Nennen Sie Indikation …“.
+
+Nicht übernommen wurden außerdem die Blutdruckgrenzen „Hypertonie > 100, Hypotonie < 100“
+(S. 5) – die zugehörige Frage nennt nur den unstrittigen Normwert 120/80 mmHg.
+
 ## Benutzung
 
 Online über den Link oben – oder lokal:

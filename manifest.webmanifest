@@ -1,0 +1,17 @@
+{
+  "name": "RettSan Prüfungstrainer",
+  "short_name": "RettSan",
+  "description": "Offene Fragen, Fallbeispiele und Multiple Choice für die schriftliche Abschlussprüfung Rettungssanitäter/in.",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "background_color": "#EEF1F4",
+  "theme_color": "#C21D2C",
+  "lang": "de",
+  "icons": [
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

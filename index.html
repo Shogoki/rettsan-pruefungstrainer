@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RettSan Prüfungstrainer</title>
+<meta name="description" content="Prüfungstrainer für die schriftliche Abschlussprüfung Rettungssanitäter/in: offene Fragen, Fallbeispiele und Multiple Choice mit Quellenverweis in die Lernzusammenfassungen. Läuft komplett im Browser.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#C21D2C">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<a class="skip" href="#main">Zum Inhalt springen</a>
+
+<div class="wrap">
+  <header class="topbar">
+    <button class="brand" id="brand" title="Zum Start">
+      <span class="cross" aria-hidden="true"></span><span>RettSan Prüfungstrainer</span>
+    </button>
+    <div class="right">
+      <nav id="nav" aria-label="Bereiche">
+        <button class="btn sm ghost" data-nav="start">Prüfen</button>
+        <button class="btn sm ghost" data-nav="lernen">Lernen</button>
+        <button class="btn sm ghost" data-nav="nachschlagen">Nachschlagen</button>
+        <button class="btn sm ghost" data-nav="statistik">Statistik</button>
+      </nav>
+      <button class="btn sm ghost" id="btnTheme" title="Darstellung wechseln">◐</button>
+      <span class="small muted" id="savedHint" aria-live="polite" style="opacity:0"></span>
+      <button class="btn sm ghost" id="btnReset">Zurücksetzen</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="viewSetup"   class="paper setup"></section>
+    <section id="viewExam"    class="hidden" aria-label="Prüfungsbogen"></section>
+    <section id="viewResults" class="hidden" aria-label="Auswertung"></section>
+    <section id="viewLearn"   class="hidden" aria-label="Lernmodus"></section>
+    <section id="viewBrowse"  class="hidden" aria-label="Nachschlagen"></section>
+    <section id="viewStats"   class="hidden" aria-label="Statistik"></section>
+  </main>
+
+  <footer class="small muted" style="margin-top:40px; border-top:1px solid var(--line); padding-top:14px">
+    <p style="margin:0">
+      Inhalte aus den eigenen Lernzusammenfassungen unter <code>data/</code>. Punkte und Noten nach
+      §§ 14, 15 APVO-RettSan (Niedersachsen) – andere Bundesländer weichen ab. Kein Ersatz für Lehrbuch,
+      Unterricht oder aktuelle Leitlinie. Alle Daten bleiben in diesem Browser.
+    </p>
+  </footer>
+</div>
+
+<!-- Fragenkatalog -->
+<script src="js/data/docs.js"></script>
+<script src="js/data/open.js"></script>
+<script src="js/data/cases.js"></script>
+<script src="js/data/mc.js"></script>
+<!-- Anwendung -->
+<script src="js/catalog.js"></script>
+<script src="js/store.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/exam.js"></script>
+<script src="js/view-setup.js"></script>
+<script src="js/view-exam.js"></script>
+<script src="js/view-results.js"></script>
+<script src="js/view-learn.js"></script>
+<script src="js/view-browse.js"></script>
+<script src="js/view-stats.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

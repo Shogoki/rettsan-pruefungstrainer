@@ -133,33 +133,6 @@ legend{font-weight:600; margin-bottom:8px; padding:0}
 .topiclinks{display:flex; gap:10px; margin:-2px 0 6px}
 .topiclinks button{background:none; border:0; padding:0; font-size:.8rem; color:var(--blue); text-decoration:underline}
 
-/* --- Prüfungsüberblick --------------------------------------------------- */
-.exam-info{margin:16px 0 4px; overflow:hidden}
-.exam-info > summary{display:flex; align-items:center; gap:10px; padding:13px 16px; cursor:pointer;
-  font-weight:600; list-style:none; line-height:1.4}
-.exam-info > summary::-webkit-details-marker{display:none}
-.exam-info > summary::after{content:"›"; margin-left:auto; color:var(--ink-3); font-size:1.2rem;
-  transition:transform .15s; flex:none}
-.exam-info[open] > summary::after{transform:rotate(90deg)}
-.exam-info .src{font-size:.72rem; font-weight:500; color:var(--ink-2); background:var(--line-2);
-  border-radius:99px; padding:2px 9px; white-space:nowrap}
-.exam-info .oe-body{padding:0 16px 16px; border-top:1px solid var(--line-2); padding-top:14px}
-.exam-info h3{font-size:.8rem; letter-spacing:.03em; text-transform:uppercase; color:var(--ink-2);
-  margin:18px 0 8px}
-.exam-info h3:first-child{margin-top:0}
-.exam-info p{font-size:.9rem; margin:0 0 10px}
-.exam-info ul{margin:0 0 10px; padding-left:18px; font-size:.9rem}
-.exam-info li{margin:4px 0}
-.weg{list-style:none; margin:0 0 4px; padding:0; display:grid; gap:7px}
-.weg li{display:flex; gap:11px; align-items:flex-start; font-size:.9rem; line-height:1.4}
-.weg .no{flex:none; width:24px; height:24px; border-radius:50%; display:grid; place-items:center;
-  font-size:.78rem; font-weight:600; background:var(--line-2); color:var(--ink-2)}
-.weg li.todo .no{background:var(--blue); color:#fff}
-.weg li.todo{font-weight:500}
-.weg .h{font-size:.78rem; color:var(--ink-3); display:block; font-weight:400}
-.oe-split{display:grid; grid-template-columns:1fr 1fr; gap:18px}
-@media (max-width:640px){.oe-split{grid-template-columns:1fr; gap:4px}}
-
 /* --- Statuszeile / Timer ------------------------------------------------- */
 .status{display:flex; align-items:center; gap:12px; margin-bottom:14px; flex-wrap:wrap}
 .progress{flex:1; min-width:120px; height:6px; background:var(--line); border-radius:99px; overflow:hidden}

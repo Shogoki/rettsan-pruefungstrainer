@@ -20,7 +20,7 @@
     return {
       v: 3,
       settings: {
-        mode: "pruefung",
+        mode: "lernen",
         topics: RS.TOPICS.slice(),
         count: 10,
         peek: false,

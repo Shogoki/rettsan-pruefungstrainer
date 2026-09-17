@@ -1,13 +1,13 @@
 # RettSan Prüfungstrainer
 
-Vorbereitung auf den **schriftlichen Teil der staatlichen Abschlussprüfung
-Rettungssanitäter/in in Hessen** – die Aufsichtsarbeit von 120 Minuten, die nach dem
-Abschlusslehrgang ansteht. Offene Fragen, Fallbeispiele und Multiple Choice, alles mit
-Verweis auf die Stelle in den zugrunde liegenden Lernzusammenfassungen. Läuft komplett im
-Browser, ohne Server und ohne Konto.
+Zum **Lernen und zur Selbstkontrolle** in der Vorbereitung auf die schriftliche
+Abschlussprüfung Rettungssanitäter/in – offene Fragen, Fallbeispiele und Multiple Choice,
+alles mit Verweis auf die Stelle in den zugrunde liegenden Lernzusammenfassungen. Läuft
+komplett im Browser, ohne Server und ohne Konto.
 
-> Gedacht für die **staatliche Abschlussprüfung** am Ende der Ausbildung – nicht für die
-> Erfolgskontrolle, mit der der 240-Stunden-Abschnitt an der Schule endet.
+Der Alltag ist der **Lernmodus**: ein paar Karten am Tag, die App plant die Wiederholungen.
+Wenn du wissen willst, wo du stehst, machst du eine **Standortbestimmung** – einen gemischten
+Bogen unter Zeit, der dir Punkte, Note und die schwachen Themen zeigt.
 
 **→ [App öffnen](https://shogoki.github.io/rettsan-pruefungstrainer/)**
 
@@ -27,10 +27,15 @@ Pharmakologie · Infektionen & Hygiene · Untersuchung & Einsatzablauf · Fallbe
 
 ## Die vier Modi
 
-**Prüfungssimulation** – gemischter Bogen als Aufsichtsarbeit, wie der schriftliche Teil in
-Hessen. Der **Anteil Multiple Choice ist frei wählbar** (0 bis 100 %), weil die Verordnung
-keinen Höchstanteil vorgibt: die Fragen bestimmt der Prüfungsausschuss auf Vorschlag der
-Ausbildungsstätte. Mit Zeitlimit rechnet die App anteilig auf die 120 Minuten der echten
+**Lernmodus** – der Normalfall. Karte für Karte mit gestaffelter Wiederholung (SM-2). Du
+deckst die Musterlösung auf und sagst selbst, wie gut es lief: *Nochmal · Schwer · Gut ·
+Leicht*. Was sitzt, kommt in immer größeren Abständen wieder; Wackelkandidaten bleiben im
+kurzen Takt.
+
+**Standortbestimmung** – gemischter Bogen unter Zeit, um zu sehen, wo du stehst. Der
+**Anteil Multiple Choice ist frei wählbar** (0 bis 100 %), weil die Verordnung keinen
+Höchstanteil vorgibt: die Fragen bestimmt der Prüfungsausschuss auf Vorschlag der
+Ausbildungsstätte. Mit Zeitlimit rechnet die App anteilig auf die 120 Minuten der
 Aufsichtsarbeit hoch.
 
 **Offene Fragen** – nur offene Fragen und Fallbeispiele. Frei formulieren, danach anhand der
@@ -40,10 +45,6 @@ Musterlösung selbst bewerten (0 / 0,5 / 1 / 1,5 / 2 Punkte).
 ausgewertet. Die Reihenfolge der Antwortoptionen wird bei jedem Start neu gemischt, damit
 nicht die Position auswendig gelernt wird.
 
-**Lernmodus** – Karte für Karte mit gestaffelter Wiederholung (SM-2). Du deckst die
-Musterlösung auf und sagst selbst, wie gut es lief: *Nochmal · Schwer · Gut · Leicht*.
-Was sitzt, kommt in immer größeren Abständen wieder; Wackelkandidaten bleiben im kurzen Takt.
-
 Dazu **Nachschlagen** (Volltextsuche über alle Fragen und Lösungen) und **Statistik**
 (Lernstand je Thema, Prüfungsverlauf, Sicherung als Datei).
 
@@ -52,30 +53,6 @@ Dazu **Nachschlagen** (Volltextsuche über alle Fragen und Lösungen) und **Stat
 Maßgeblich ist die **Ausbildungs- und Prüfungsordnung für Rettungssanitäterinnen und
 Rettungssanitäter (APORettSan)** vom 1. Oktober 2021, gültig seit 1. Januar 2022.
 Zuständig ist das Hessische Landesamt für Gesundheit und Pflege.
-
-### Der Weg bis zur Prüfung (§ 2 Abs. 1)
-
-Die Ausbildung umfasst 520 Stunden in fester Reihenfolge:
-
-| | Abschnitt | Umfang |
-|---|---|---|
-| 1 | Theoretisch-praktische Ausbildung an der Schule, abgeschlossen durch eine **Erfolgskontrolle** | 240 Std. |
-| 2 | Praktische Ausbildung im Krankenhaus oder einer geeigneten Einrichtung | 80 Std. |
-| 3 | Praktische Ausbildung im Rettungsdienst | 160 Std. |
-| 4 | **Abschlusslehrgang** | 40 Std. |
-| 5 | **Staatliche Abschlussprüfung** | – |
-
-Die Ausbildung ist möglichst zusammenhängend und innerhalb von zwei Jahren abzuschließen;
-auf Antrag sind höchstens drei Jahre möglich (§ 2 Abs. 2).
-
-**Zulassung** (§ 6): Der Antrag läuft über die Ausbildungsstätte und muss **spätestens vier
-Wochen vor Prüfungsbeginn** bei der zuständigen Behörde liegen. Beizufügen sind eine
-beglaubigte Ausweiskopie und die Originalbescheinigungen über die Abschnitte 1 bis 3.
-Zulassung und Termin kommen **spätestens zwei Wochen vorher** schriftlich. Wird der
-Abschlusslehrgang nicht vollständig absolviert, **wird die Zulassung widerrufen**
-(§ 6 Abs. 3, § 7 Abs. 1).
-
-### Die Prüfung selbst
 
 **Die Prüfung hat zwei Teile** (§ 7 Abs. 1) – schriftlich und praktisch. Einen mündlichen
 Teil gibt es in Hessen nicht.
@@ -101,16 +78,8 @@ Teil gibt es in Hessen nicht.
 
 **Praktischer Teil** (§ 7 Abs. 3–5): zwei Fallbeispiele, 20–40 Minuten je Fallbeispiel.
 Eines aus qualifiziertem Krankentransport oder notfallmedizinischer Versorgung – dieses wird
-durch ein **Fachgespräch** ergänzt, in dem das eigene Handeln erläutert und die
-Prüfungssituation reflektiert wird –, das zweite immer **Herzkreislaufstillstand mit
-Reanimation**. Verlangt werden dabei Einschätzung der Gesamtsituation, Umgang mit
-medizinisch-technischen Geräten, Sofortmaßnahmen, Dokumentation sowie Transportbereitschaft
-und Übergabe. Jedes Fallbeispiel muss mindestens „ausreichend" sein.
-
-> **Diesen Teil deckt die App nicht ab.** Die Fallbeispiele hier sind schriftliche Aufgaben
-> mit Teilfragen; sie ersetzen kein praktisches Fallbeispiel vor dem Prüfungsausschuss.
-> Insbesondere zur **Reanimation** geben die zugrunde liegenden Zusammenfassungen zu wenig
-> her – dafür brauchst du anderes Material.
+durch ein **Fachgespräch** ergänzt –, das zweite immer **Herzkreislaufstillstand mit
+Reanimation**. Jedes Fallbeispiel muss mindestens „ausreichend" sein.
 
 **Bestehen und Wiederholen** (§ 9): bestanden, wenn beide Teile bestanden sind. Nicht
 bestandene Teile können auf Antrag **einmal** wiederholt werden, innerhalb eines Jahres nach

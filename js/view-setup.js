@@ -4,18 +4,18 @@
   const U = RS.ui, S = RS.store, E = RS.exam, $ = U.$;
 
   const MODES = [
-    { id: "pruefung", name: "Prüfungssimulation",
-      desc: "Gemischter Bogen als Aufsichtsarbeit: Multiple Choice und offene Fragen, Anteil frei wählbar.",
-      tag: "120 Min." },
+    { id: "lernen", name: "Lernmodus",
+      desc: "Karte für Karte mit Wiederholungsplanung: Was sitzt, kommt seltener – was wackelt, kommt wieder.",
+      tag: "täglich" },
     { id: "offen", name: "Offene Fragen",
       desc: "Nur offene Fragen und Fallbeispiele. Frei formulieren, danach anhand der Musterlösung selbst bewerten.",
       tag: "2 Pkt." },
     { id: "mc", name: "Multiple Choice",
       desc: "Nur Ankreuzfragen mit genau einer richtigen Antwort. Wird automatisch ausgewertet.",
       tag: "1 Pkt." },
-    { id: "lernen", name: "Lernmodus",
-      desc: "Karte für Karte mit Wiederholungsplanung: Was sitzt, kommt seltener – was wackelt, kommt wieder.",
-      tag: "täglich" },
+    { id: "pruefung", name: "Standortbestimmung",
+      desc: "Gemischter Bogen unter Zeitdruck: Wo stehe ich? Multiple Choice und offene Fragen, Anteil frei wählbar.",
+      tag: "120 Min." },
   ];
 
   const V = {};
@@ -47,13 +47,12 @@
     const isLearn = set.mode === "lernen";
 
     el.innerHTML =
-      "<h1>Schriftliche Prüfung üben</h1>" +
-      '<p class="muted">Vorbereitung auf den <strong>schriftlichen Teil der staatlichen ' +
-      "Abschlussprüfung</strong> in Hessen – die Aufsichtsarbeit von 120 Minuten nach dem " +
-      "Abschlusslehrgang. Offene Fragen frei beantworten und anhand der Musterlösung selbst " +
-      "bewerten, Multiple Choice automatisch auswerten lassen, beides mit Quellenverweis in die " +
-      "Zusammenfassungen. Alles läuft im Browser, nichts wird gesendet.</p>" +
-      examOverview() +
+      "<h1>Lernen und sich selbst kontrollieren</h1>" +
+      '<p class="muted">Vorbereitung auf die schriftliche Abschlussprüfung: täglich ein paar Karten ' +
+      "im Lernmodus, und wenn du wissen willst, wo du stehst, ein Bogen unter Zeit. Offene Fragen " +
+      "beantwortest du frei und bewertest sie anhand der Musterlösung selbst, Multiple Choice wertet " +
+      "die App aus – beides mit Quellenverweis in die Zusammenfassungen. Alles läuft im Browser, " +
+      "nichts wird gesendet.</p>" +
 
       '<div class="modes" role="group" aria-label="Modus wählen">' + modeCards + "</div>" +
 
@@ -165,87 +164,12 @@
       "</fieldset>" +
 
       '<button class="btn primary" id="btnStart" style="width:100%; padding:12px; justify-content:center"' +
-      (pool.length ? "" : " disabled") + ">Prüfung starten</button>" +
+      (pool.length ? "" : " disabled") + ">" + (set.mode === "pruefung" ? "Standortbestimmung starten" : "Übung starten") + "</button>" +
 
       '<div class="note"><strong>Hessen (APORettSan):</strong> die schriftliche Prüfung ist eine ' +
       "Aufsichtsarbeit von 120 Minuten und ist bestanden, wenn sie mindestens mit „ausreichend“ " +
       "benotet wird (§ 7 Abs. 2). Ein Punkteschema und einen Prozentschlüssel gibt die Verordnung " +
       "nicht vor – die Punkte hier sind eine Übungshilfe.</div>";
-  }
-
-  /* Kompakter Überblick über die staatliche Abschlussprüfung.
-     Alle Angaben aus der APORettSan (Hessen) vom 1. Oktober 2021. */
-  function examOverview() {
-    const weg = [
-      ["Theoretisch-praktische Ausbildung", "240 Stunden an der Schule, abgeschlossen durch eine Erfolgskontrolle", false],
-      ["Praktische Ausbildung in der Klinik", "80 Stunden im Krankenhaus oder einer geeigneten Einrichtung", false],
-      ["Praktische Ausbildung im Rettungsdienst", "160 Stunden auf der Lehrrettungswache", false],
-      ["Abschlusslehrgang", "40 Stunden – ohne ihn wird die Zulassung zur Prüfung widerrufen (§ 6 Abs. 3)", true],
-      ["Staatliche Abschlussprüfung", "schriftlich und praktisch (§ 7)", true],
-    ];
-
-    return '<details class="paper exam-info">' +
-      "<summary>Was in der staatlichen Abschlussprüfung auf dich zukommt" +
-      '<span class="src">APORettSan Hessen</span></summary>' +
-      '<div class="oe-body">' +
-
-        "<h3>Der Weg dahin (§ 2 Abs. 1)</h3>" +
-        '<ol class="weg">' +
-          weg.map(function (w, i) {
-            return '<li class="' + (w[2] ? "todo" : "") + '"><span class="no">' + (i + 1) + "</span>" +
-              "<span>" + U.esc(w[0]) + '<span class="h">' + U.esc(w[1]) + "</span></span></li>";
-          }).join("") +
-        "</ol>" +
-        '<p class="muted small">Die Abschnitte sind in dieser Reihenfolge zu absolvieren. ' +
-        "Die Bescheinigungen über 1 bis 3 gehören zum Zulassungsantrag.</p>" +
-
-        "<h3>Zulassung (§ 6)</h3>" +
-        "<ul>" +
-          "<li>Antrag über die Ausbildungsstätte, <b>spätestens vier Wochen</b> vor Prüfungsbeginn</li>" +
-          "<li>Beizulegen: beglaubigte Kopie von Personalausweis oder Reisepass und die " +
-            "Originalbescheinigungen über die Abschnitte 1 bis 3</li>" +
-          "<li>Zulassung und Termin kommen <b>spätestens zwei Wochen</b> vorher schriftlich</li>" +
-        "</ul>" +
-
-        '<div class="oe-split">' +
-          "<div>" +
-            "<h3>Schriftlicher Teil (§ 7 Abs. 2)</h3>" +
-            "<ul>" +
-              "<li>Aufsichtsarbeit von <b>120 Minuten</b></li>" +
-              "<li>Fragen vom Prüfungsausschuss auf Vorschlag der Schule – kein vorgeschriebenes " +
-                "Format, kein Höchstanteil Multiple Choice</li>" +
-              "<li>Bewertung durch zwei Fachprüfer</li>" +
-              "<li>bestanden ab <b>„ausreichend“</b></li>" +
-            "</ul>" +
-            '<p class="small muted"><b>Diesen Teil übt die App.</b></p>' +
-          "</div>" +
-          "<div>" +
-            "<h3>Praktischer Teil (§ 7 Abs. 3–5)</h3>" +
-            "<ul>" +
-              "<li><b>Zwei Fallbeispiele</b>, je 20 bis 40 Minuten</li>" +
-              "<li>eines aus qualifiziertem Krankentransport oder notfallmedizinischer Versorgung – " +
-                "dazu ein <b>Fachgespräch</b>: eigenes Handeln erläutern und die Prüfungssituation reflektieren</li>" +
-              "<li>das zweite immer <b>Herzkreislaufstillstand mit Reanimation</b></li>" +
-              "<li>jedes Fallbeispiel muss mindestens „ausreichend“ sein</li>" +
-            "</ul>" +
-            '<p class="small muted">Verlangt werden dabei: Einschätzung der Gesamtsituation, Umgang mit ' +
-            "medizinisch-technischen Geräten, Sofortmaßnahmen, Dokumentation sowie Transportbereitschaft " +
-            "und Übergabe.</p>" +
-          "</div>" +
-        "</div>" +
-
-        "<h3>Noten und Bestehen (§§ 8, 9)</h3>" +
-        "<ul>" +
-          "<li>Die Noten sind nur mit Worten definiert – einen Prozentschlüssel gibt die Verordnung nicht vor</li>" +
-          "<li>Bestanden ist die Abschlussprüfung, wenn <b>beide Teile</b> bestanden sind</li>" +
-          "<li>Nicht bestandene Teile können auf Antrag <b>einmal</b> wiederholt werden, innerhalb eines " +
-            "Jahres nach dem letzten Prüfungstag</li>" +
-        "</ul>" +
-
-        '<p class="small muted" style="margin-bottom:0">Die Fallbeispiele in dieser App sind ' +
-        "schriftliche Aufgaben mit Teilfragen – sie ersetzen nicht das praktische Fallbeispiel " +
-        "vor dem Prüfungsausschuss.</p>" +
-      "</div></details>";
   }
 
   function learnPanel(counts) {

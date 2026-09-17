@@ -27,7 +27,7 @@
       '<div class="paper sheet" id="sheet"></div>' +
       '<div class="overview" id="overview" role="group" aria-label="Aufgaben"></div>' +
       '<div class="btn-row">' +
-        '<button class="btn danger" id="btnSubmit">Prüfung abgeben</button>' +
+        '<button class="btn danger" id="btnSubmit">Abgeben und auswerten</button>' +
         '<button class="btn ghost" id="btnAbort">Abbrechen</button>' +
       "</div>" +
       '<p class="small muted" style="margin-top:14px">Tastatur: <b>←</b> / <b>→</b> blättern' +
@@ -39,7 +39,7 @@
 
     $("#btnSubmit").onclick = function () { trySubmit(false); };
     $("#btnAbort").onclick = function () {
-      if (confirm("Prüfung abbrechen? Deine Antworten gehen verloren.")) {
+      if (confirm("Übung abbrechen? Deine Antworten gehen verloren.")) {
         V.leave(); S.state.session = null; S.saveNow(); RS.app.go("setup");
       }
     };

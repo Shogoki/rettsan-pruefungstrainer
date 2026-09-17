@@ -27,7 +27,7 @@
       "</div>" +
       '<div id="resultList"></div>' +
       '<div class="btn-row">' +
-        '<button class="btn primary" id="btnAgain">Neue Prüfung</button>' +
+        '<button class="btn primary" id="btnAgain">Neue Übung</button>' +
         '<button class="btn" id="btnRetryWeak">Schwache Aufgaben wiederholen</button>' +
         '<button class="btn ghost" id="btnPrint">Drucken</button>' +
       "</div>";

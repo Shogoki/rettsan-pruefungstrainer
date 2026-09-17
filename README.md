@@ -6,7 +6,7 @@ alles mit Verweis auf die Stelle in den zugrunde liegenden Lernzusammenfassungen
 komplett im Browser, ohne Server und ohne Konto.
 
 Der Alltag ist der **Lernmodus**: ein paar Karten am Tag, die App plant die Wiederholungen.
-Wenn du wissen willst, wo du stehst, machst du eine **Standortbestimmung** – einen gemischten
+Wenn du wissen willst, wo du stehst, machst du eine **Prüfungssimulation** – einen gemischten
 Bogen unter Zeit, der dir Punkte, Note und die schwachen Themen zeigt.
 
 **→ [App öffnen](https://shogoki.github.io/rettsan-pruefungstrainer/)**
@@ -32,7 +32,7 @@ deckst die Musterlösung auf und sagst selbst, wie gut es lief: *Nochmal · Schw
 Leicht*. Was sitzt, kommt in immer größeren Abständen wieder; Wackelkandidaten bleiben im
 kurzen Takt.
 
-**Standortbestimmung** – gemischter Bogen unter Zeit, um zu sehen, wo du stehst. Der
+**Prüfungssimulation** – gemischter Bogen unter Zeit, um zu sehen, wo du stehst. Der
 **Anteil Multiple Choice ist frei wählbar** (0 bis 100 %), weil die Verordnung keinen
 Höchstanteil vorgibt: die Fragen bestimmt der Prüfungsausschuss auf Vorschlag der
 Ausbildungsstätte. Mit Zeitlimit rechnet die App anteilig auf die 120 Minuten der

@@ -1,4 +1,4 @@
-/* Auswertung: Punkte, Note nach APVO, Selbstbewertung, Wiederholung. */
+/* Auswertung: Punkte, Note nach § 8 APORettSan, Selbstbewertung, Wiederholung. */
 (function () {
   "use strict";
   const U = RS.ui, S = RS.store, E = RS.exam, $ = U.$;
@@ -17,6 +17,7 @@
 
     el.innerHTML =
       '<div class="paper score" id="scoreBox"></div>' +
+      '<div id="scoreHint"></div>' +
       '<div class="filters" role="group" aria-label="Aufgaben filtern">' +
         ["all:Alle", "unrated:Noch nicht bewertet", "weak:Unter voller Punktzahl", "wrong:Falsch beantwortet"]
           .map(function (f) {
@@ -71,7 +72,9 @@
         '<span class="num">' + g.num + "</span><span>" + U.esc(g.label) + "</span>" +
         "<span>· " + U.num(pct) + " %</span></div>" +
         '<div class="grade">' + (U.passed(pct) ? "bestanden" : "nicht bestanden") +
-        " · Notenschlüssel nach §15 APVO-RettSan (Niedersachsen)</div>";
+        " – der schriftliche Teil ist ab „ausreichend“ bestanden (§ 7 Abs. 2 APORettSan).</div>" +
+        '<div class="grade" style="margin-top:8px">„' + U.esc(g.label) + "“ (" + g.num + "): " +
+        U.esc(g.def) + " <span class=\"muted\">(§ 8 APORettSan)</span></div>";
 
     $("#scoreBox").innerHTML =
       "<div>" +
@@ -79,6 +82,13 @@
         verdict +
       "</div>" +
       '<div class="topics">' + rows + "</div>";
+
+    const hint = $("#scoreHint");
+    hint.innerHTML = openLeft > 0 ? "" :
+      '<div class="note warn"><strong>Prozentwert ist ein Richtwert:</strong> ' +
+      "Hessen definiert die Noten nur mit den Worten aus § 8 APORettSan und legt keinen " +
+      "Prozentschlüssel fest. Welche Punktzahl an deiner Schule welcher Note entspricht, " +
+      "sagt dir die Schule.</div>";
   }
 
   function renderList() {

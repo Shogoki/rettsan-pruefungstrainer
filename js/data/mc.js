@@ -1,7 +1,9 @@
 /* Multiple-Choice-Fragen – genau eine richtige Antwort, 1 Punkt.
-   Entspricht § 15 APVO-RettSan (Niedersachsen): "Bei Multiple-Choice-Fragen ist
-   nur eine Antwort richtig." Keine Antwort, eine falsche Antwort oder mehr als
-   eine Antwort ergeben null Punkte.
+
+   Hessen (APORettSan) schreibt weder ein Fragenformat noch ein Punkteschema
+   vor; die Fragen bestimmt der Prüfungsausschuss auf Vorschlag der
+   Ausbildungsstätte (§ 7 Abs. 2). Das Format hier – genau eine richtige
+   Antwort, keine Teilpunkte – ist eine bewusste Übungsvereinbarung.
    Format:
      { t: Thema,
        q: Frage,

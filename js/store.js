@@ -26,6 +26,7 @@
         peek: false,
         timer: false,
         shuffle: true,
+        mcShare: 50,
         theme: "system",
         newPerSession: 10,
       },

@@ -22,9 +22,11 @@ Pharmakologie · Infektionen & Hygiene · Untersuchung & Einsatzablauf · Fallbe
 
 ## Die vier Modi
 
-**Prüfungssimulation** – gemischter Bogen wie auf dem echten Prüfungsbogen. Multiple Choice
-macht höchstens die Hälfte der Aufgaben aus; reicht der Vorrat an offenen Fragen nicht,
-wird der Bogen lieber kürzer, als die MC-Quote zu überschreiten.
+**Prüfungssimulation** – gemischter Bogen als Aufsichtsarbeit, wie der schriftliche Teil in
+Hessen. Der **Anteil Multiple Choice ist frei wählbar** (0 bis 100 %), weil die Verordnung
+keinen Höchstanteil vorgibt: die Fragen bestimmt der Prüfungsausschuss auf Vorschlag der
+Ausbildungsstätte. Mit Zeitlimit rechnet die App anteilig auf die 120 Minuten der echten
+Aufsichtsarbeit hoch.
 
 **Offene Fragen** – nur offene Fragen und Fallbeispiele. Frei formulieren, danach anhand der
 Musterlösung selbst bewerten (0 / 0,5 / 1 / 1,5 / 2 Punkte).
@@ -40,32 +42,78 @@ Was sitzt, kommt in immer größeren Abständen wieder; Wackelkandidaten bleiben
 Dazu **Nachschlagen** (Volltextsuche über alle Fragen und Lösungen) und **Statistik**
 (Lernstand je Thema, Prüfungsverlauf, Sicherung als Datei).
 
-## Punkte und Noten
+## Prüfung in Hessen
 
-Bewertung nach der **APVO-RettSan (Niedersachsen)**:
+Maßgeblich ist die **Ausbildungs- und Prüfungsordnung für Rettungssanitäterinnen und
+Rettungssanitäter (APORettSan)** vom 1. Oktober 2021, gültig seit 1. Januar 2022.
+Zuständig ist das Hessische Landesamt für Gesundheit und Pflege.
 
-- Schriftliche Prüfung: 120 Minuten, höchstens 50 % Multiple-Choice-Fragen (§ 14)
-- Multiple Choice: 1 Punkt – nur bei genau einer markierten, richtigen Antwort.
-  Keine, eine falsche oder mehrere Antworten ergeben 0 Punkte (§ 15)
-- Offene Frage: 2 Punkte; teilweise richtig 0,5 / 1,0 / 1,5 Punkte (§ 15)
-- Notenschlüssel (§ 15):
+**Die Prüfung hat zwei Teile** (§ 7 Abs. 1) – schriftlich und praktisch. Einen mündlichen
+Teil gibt es in Hessen nicht.
 
-  | Anteil | Note |
-  |---|---|
-  | 100–92 % | 1 – sehr gut |
-  | < 92–81 % | 2 – gut |
-  | < 81–67 % | 3 – befriedigend |
-  | < 67–50 % | 4 – ausreichend |
-  | < 50–30 % | 5 – mangelhaft |
-  | < 30 % | 6 – ungenügend |
+**Schriftlicher Teil** (§ 7 Abs. 2):
 
-  Bestanden ist der Prüfungsteil bei einem Mittelwert von 4,4 oder besser – für die
-  schriftliche Prüfung also ab 50 %.
+- Aufsichtsarbeit von **120 Minuten**
+- Die Fragen bestimmt das vorsitzende Mitglied des Prüfungsausschusses **auf Vorschlag der
+  Ausbildungsstätte**
+- Bewertung durch zwei Fachprüferinnen oder Fachprüfer
+- **Bestanden, wenn mit mindestens „ausreichend" benotet**
 
-> Quellen: [§ 14 APVO-RettSan](https://voris.wolterskluwer-online.de/browse/document/b004bdd8-2c9a-3a8f-b012-4d0f9752589c)
-> und [§ 15 APVO-RettSan](https://voris.wolterskluwer-online.de/browse/document/8a4fc279-9104-3ac7-92c9-70f8169c75c1)
-> im Niedersächsischen Vorschrifteninformationssystem.
-> **Andere Bundesländer weichen ab** – Punkteschema und Bestehensgrenze bitte an der eigenen Schule prüfen.
+**Noten** (§ 8) – die Verordnung definiert sie ausschließlich mit Worten:
+
+| Note | Definition laut § 8 APORettSan |
+|---|---|
+| sehr gut (1) | Die Leistung entspricht den Anforderungen in besonderem Maße. |
+| gut (2) | Die Leistung entspricht voll den Anforderungen. |
+| befriedigend (3) | Die Leistung entspricht im Allgemeinen den Anforderungen. |
+| ausreichend (4) | Die Leistung weist zwar Mängel auf, entspricht aber im Ganzen noch den Anforderungen. |
+| mangelhaft (5) | Die Leistung entspricht nicht den Anforderungen, lässt jedoch erkennen, dass die notwendigen Grundkenntnisse vorhanden sind und die Mängel in absehbarer Zeit behoben werden können. |
+| ungenügend (6) | Die Leistung entspricht nicht den Anforderungen und selbst die Grundkenntnisse sind so lückenhaft, dass die Mängel in absehbarer Zeit nicht behoben werden können. |
+
+**Praktischer Teil** (§ 7 Abs. 3–5): zwei Fallbeispiele, 20–40 Minuten je Fallbeispiel.
+Eines aus qualifiziertem Krankentransport oder notfallmedizinischer Versorgung – dieses wird
+durch ein **Fachgespräch** ergänzt –, das zweite immer **Herzkreislaufstillstand mit
+Reanimation**. Jedes Fallbeispiel muss mindestens „ausreichend" sein.
+
+**Bestehen und Wiederholen** (§ 9): bestanden, wenn beide Teile bestanden sind. Nicht
+bestandene Teile können auf Antrag **einmal** wiederholt werden, innerhalb eines Jahres nach
+dem letzten Prüfungstag.
+
+> Quelle: [APORettSan (Hessisches Sozialministerium, PDF)](https://soziales.hessen.de/sites/soziales.hessen.de/files/2023-08/ausbildungs-_und_pruefungsverordnung_fuer_rettungssanitaeterinnen_und_rettungssanitaeter_aporettsan.pdf)
+> · [Fassung bei umwelt-online](https://www.umwelt-online.de/regelwerk/cgi-bin/suchausgabe.cgi?pfad=%2Fallgemei%2Flaender%2Fhe%2Faporettsan21.htm&such=Allgemeine+Grunds%EF%BF%BDtze)
+
+### Was das für diese App bedeutet
+
+Hessen schreibt **weder ein Fragenformat noch ein Punkteschema noch einen Prozentschlüssel**
+vor. Das unterscheidet die Prüfung von der in anderen Ländern – Niedersachsen etwa deckelt
+Multiple Choice auf 50 % und rechnet mit festen Punkten und Prozentgrenzen.
+
+Daraus folgt für den Trainer:
+
+- **Der MC-Anteil ist frei einstellbar** (0 / 25 / 50 / 75 / 100 %). Es gibt keine
+  gesetzliche Obergrenze, an die sich der Bogen halten müsste.
+- **Punkte sind eine Übungshilfe**, kein Verordnungsrecht: 2 Punkte je offener (Teil-)Frage
+  mit Zwischenstufen 0,5 / 1,0 / 1,5 zur Selbstbewertung, 1 Punkt je MC-Frage.
+- **Die Prozentgrenzen sind ein Richtwert** und als solcher in der Auswertung gekennzeichnet.
+  Die App zeigt zusätzlich immer die Notendefinition aus § 8 im Wortlaut. Welche Punktzahl an
+  deiner Schule welcher Note entspricht, legt die Schule fest – anpassbar über `GRADES` in
+  `js/ui.js`.
+- **Bestanden ab „ausreichend"**, so wie es § 7 Abs. 2 formuliert.
+
+### Lehrplan
+
+Anlage 1 der APORettSan übernimmt die Empfehlungen des Ausschusses Rettungswesen vom
+11./12. Februar 2019 (520-Stunden-Programm) mit vier Themenbereichen:
+
+| Themenbereich | Umfang an der Schule |
+|---|---|
+| A – Handlungsfeld Krankentransport und Rettungsdienst | 60 UE |
+| B – Versorgung nach dem ABCDE-Schema | 120 UE |
+| C – Spezielle Versorgung | 40 UE |
+| D – Psychosoziale Aspekte | 20 UE |
+
+Der Fragenkatalog dieser App deckt vor allem B und C ab, weil die zugrunde liegenden
+Zusammenfassungen diese Bereiche behandeln.
 
 ## Quellen der Inhalte
 
@@ -143,7 +191,7 @@ js/data/cases.js         Fallbeispiele
 js/data/mc.js            Multiple-Choice-Fragen
 js/catalog.js            führt die drei Kataloge zusammen, vergibt stabile IDs
 js/store.js              Zustand, localStorage, Wiederholungsplanung (SM-2)
-js/ui.js                 gemeinsame Bausteine, Notenschlüssel, Quellenlinks
+js/ui.js                 gemeinsame Bausteine, Notenstufen (§ 8), Quellenlinks
 js/exam.js               Bogen zusammenstellen, bewerten, abgeben
 js/view-*.js             die sechs Ansichten
 js/app.js                Router, Kopfzeile, Tastatur, Theme, Service Worker
@@ -199,9 +247,10 @@ denn dann hat sich auch der Lernstoff geändert.
 | Was | Wo |
 |---|---|
 | Zeit je Frage | `MS_MC` / `MS_OPEN` in `js/exam.js` |
-| Notenschlüssel | `GRADES` in `js/ui.js` |
+| Notenstufen und Prozent-Richtwerte | `GRADES` in `js/ui.js` |
 | Punkteskala der Selbstbewertung | `SCALE` in `js/view-results.js` |
 | Neue Karten pro Lernrunde | `newPerSession` in `js/store.js` |
+| Voreingestellter MC-Anteil | `mcShare` in `js/store.js` |
 | Farben | Tokens in `:root` in `css/app.css` |
 
 Nach Änderungen an den Dateien `VERSION` in `sw.js` erhöhen, damit der Offline-Cache erneuert wird.

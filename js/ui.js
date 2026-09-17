@@ -29,22 +29,36 @@
     return a;
   };
 
-  /* ---------- Noten nach §15 APVO-RettSan (Niedersachsen) ---------- */
+  /* ---------- Noten nach § 8 APORettSan (Hessen) ----------
+     Hessen definiert die Noten ausschließlich qualitativ. Einen amtlichen
+     Prozentschlüssel gibt es dort NICHT – anders als z.B. in Niedersachsen.
+     Die Prozentgrenzen unten sind deshalb nur ein Richtwert zum Üben und
+     lassen sich hier zentral ändern, ohne dass die Notendefinitionen
+     (Wortlaut der Verordnung) davon berührt werden. */
   const GRADES = [
-    { min: 92, num: 1, label: "sehr gut" },
-    { min: 81, num: 2, label: "gut" },
-    { min: 67, num: 3, label: "befriedigend" },
-    { min: 50, num: 4, label: "ausreichend" },
-    { min: 30, num: 5, label: "mangelhaft" },
-    { min: 0,  num: 6, label: "ungenügend" },
+    { min: 92, num: 1, label: "sehr gut",
+      def: "Die Leistung entspricht den Anforderungen in besonderem Maße." },
+    { min: 81, num: 2, label: "gut",
+      def: "Die Leistung entspricht voll den Anforderungen." },
+    { min: 67, num: 3, label: "befriedigend",
+      def: "Die Leistung entspricht im Allgemeinen den Anforderungen." },
+    { min: 50, num: 4, label: "ausreichend",
+      def: "Die Leistung weist zwar Mängel auf, entspricht aber im Ganzen noch den Anforderungen." },
+    { min: 30, num: 5, label: "mangelhaft",
+      def: "Die Leistung entspricht nicht den Anforderungen, lässt jedoch erkennen, dass die notwendigen Grundkenntnisse vorhanden sind und die Mängel in absehbarer Zeit behoben werden können." },
+    { min: 0,  num: 6, label: "ungenügend",
+      def: "Die Leistung entspricht nicht den Anforderungen und selbst die Grundkenntnisse sind so lückenhaft, dass die Mängel in absehbarer Zeit nicht behoben werden können." },
   ];
   U.grade = function (pct) {
     for (let i = 0; i < GRADES.length; i++) if (pct >= GRADES[i].min) return GRADES[i];
     return GRADES[GRADES.length - 1];
   };
-  /* Bestanden: Mittelwert der Bewertungen 4,4 oder besser (§15 Abs. 4). */
+  /* § 7 Abs. 2 Satz 5 APORettSan: Der schriftliche Teil ist bestanden,
+     wenn er mit mindestens „ausreichend“ benotet wird. */
   U.passed = function (pct) { return U.grade(pct).num <= 4; };
   U.GRADES = GRADES;
+  /* Prozentgrenzen sind kein Verordnungsrecht – an den passenden Stellen kenntlich machen. */
+  U.GRADES_AMTLICH = false;
 
   /* ---------- Quellenverweis ---------- */
   const refIcon =

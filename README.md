@@ -84,16 +84,21 @@ Link und öffnet das PDF direkt auf der passenden Seite.
 > jedem Browser funktionieren. Umlaute und Leerzeichen in URLs sind dort erfahrungsgemäß
 > eine Fehlerquelle.
 
-### Eine bewusste Abweichung von der Vorlage
+### Inhaltliche Treue
 
-`RetSan Der Körper.pdf` nennt auf S. 13 als Indikation für **Noradrenalin** „schwere
-Hypertonie, Schock“. Noradrenalin ist ein Katecholamin und *hebt* den Blutdruck – die
-Indikation ist die Hypo­tonie. Der Fragenkatalog schreibt deshalb „schwere Hypotonie,
-Schock“. Wenn im Unterricht die Formulierung der Zusammenfassung gilt, bitte dort ändern:
-`js/data/open.js`, Frage „Noradrenalin: Nennen Sie Indikation …“.
+Der Fragenkatalog gibt ausschließlich wieder, was in den drei Zusammenfassungen steht –
+Fließtext **und Abbildungen**. Mehrere Inhalte stehen dort nur als Bild und tauchen in einer
+reinen Textextraktion nicht auf, zum Beispiel:
 
-Nicht übernommen wurden außerdem die Blutdruckgrenzen „Hypertonie > 100, Hypotonie < 100“
-(S. 5) – die zugehörige Frage nennt nur den unstrittigen Normwert 120/80 mmHg.
+- die Blutgruppen-Tabelle (Der Körper, S. 2) mit Häufigkeit in Europa, Antigenen,
+  Serum-Antikörpern sowie EK- und FFP-Verträglichkeit
+- die vier Phasen des Herzzyklus mit den Taschenklappen (Der Körper, S. 5)
+- die Tabellen zu enteralen und parenteralen Applikationswegen (Der Körper, S. 12)
+- das Schema zur Fremdkörperaspiration mit der Unterscheidung Säugling/Kind (Notfälle, S. 8)
+- die Entstehung von COPD und Lungenemphysem (Notfälle, S. 4)
+
+Wo der Unterricht von der Zusammenfassung abweicht, gilt der Unterricht – geändert wird dann
+in `js/data/`, nicht hier.
 
 ## Benutzung
 

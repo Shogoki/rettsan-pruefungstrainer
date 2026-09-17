@@ -5,8 +5,8 @@
 
   const MODES = [
     { id: "pruefung", name: "Prüfungssimulation",
-      desc: "Gemischter Bogen wie in der schriftlichen Prüfung: Multiple Choice und offene Fragen, MC höchstens zur Hälfte.",
-      tag: "wie echt" },
+      desc: "Gemischter Bogen als Aufsichtsarbeit: Multiple Choice und offene Fragen, Anteil frei wählbar.",
+      tag: "120 Min." },
     { id: "offen", name: "Offene Fragen",
       desc: "Nur offene Fragen und Fallbeispiele. Frei formulieren, danach anhand der Musterlösung selbst bewerten.",
       tag: "2 Pkt." },
@@ -88,12 +88,16 @@
       U.$$("#countSeg button", el).forEach(function (b) {
         b.onclick = function () { set.count = +b.dataset.n; S.save(); V.render(); };
       });
+      U.$$("#mcSeg button", el).forEach(function (b) {
+        b.onclick = function () { set.mcShare = +b.dataset.s; S.save(); V.render(); };
+      });
       $("#optPeek").onchange = function (e) { set.peek = e.target.checked; S.save(); };
       $("#optTimer").onchange = function (e) { set.timer = e.target.checked; S.save(); V.render(); };
       $("#optShuffle").onchange = function (e) { set.shuffle = e.target.checked; S.save(); };
       $("#btnStart").onclick = function () {
         const ok = E.start({ mode: set.mode, topics: set.topics, count: set.count,
-                             peek: set.peek, timer: set.timer, shuffle: set.shuffle });
+                             peek: set.peek, timer: set.timer, shuffle: set.shuffle,
+                             mcShare: set.mcShare });
         if (ok) RS.app.go("exam");
       };
     }
@@ -104,22 +108,28 @@
     const n = pool.length;
     const take = set.count === 0 ? n : Math.min(set.count, n);
 
-    let hint, warn = "";
+    let hint, warn = "", mcPicker = "";
     if (!n) {
       hint = "Wähle mindestens ein Thema mit passenden Aufgaben.";
-    } else {
-      const mcAvail = pool.filter(function (q) { return q.kind === "mc"; }).length;
-      if (set.mode === "pruefung") {
-        const wantMC = Math.min(mcAvail, Math.floor(take / 2));
-        const wantRest = Math.min(n - mcAvail, take - wantMC);
-        hint = wantMC + " MC-Fragen und " + wantRest + " offene Aufgaben (" + (wantMC + wantRest) + " von " + n + ")";
-        if (wantMC + wantRest < take) {
-          warn = '<div class="note warn"><strong>Weniger Aufgaben als gewünscht:</strong> damit Multiple Choice ' +
-            "höchstens die Hälfte des Bogens ausmacht, werden MC-Fragen nicht nachgefüllt. Wähle mehr Themen für einen vollen Bogen.</div>";
-        }
-      } else {
-        hint = take + " von " + n + " verfügbaren Aufgaben";
+    } else if (set.mode === "pruefung") {
+      const p = E.preview(pool, set.count, set.mcShare);
+      hint = p.mc + " MC-Fragen und " + p.offen + " offene Aufgaben (" + p.gesamt + " von " + n + ")";
+      if (p.gesamt < take) {
+        warn = '<div class="note warn"><strong>Weniger Aufgaben als gewünscht:</strong> ' +
+          "im gewählten Themenzuschnitt gibt es nicht genug Aufgaben. Wähle mehr Themen oder einen kleineren Umfang.</div>";
       }
+      mcPicker =
+        "<fieldset><legend>Anteil Multiple Choice</legend>" +
+        '<div class="seg" id="mcSeg">' +
+          [0, 25, 50, 75, 100].map(function (v) {
+            return '<button type="button" data-s="' + v + '"' + (set.mcShare === v ? ' class="on"' : "") + ">" + v + " %</button>";
+          }).join("") +
+        "</div>" +
+        '<p class="small muted" style="margin-top:8px">Hessen schreibt keinen Höchstanteil vor – ' +
+        "die Fragen bestimmt der Prüfungsausschuss auf Vorschlag der Schule (§ 7 Abs. 2 APORettSan).</p>" +
+        "</fieldset>";
+    } else {
+      hint = take + " von " + n + " verfügbaren Aufgaben";
     }
 
     const ids = pool.slice(0, take).map(function (q) { return q.id; });
@@ -135,6 +145,7 @@
       '<p class="small muted" style="margin-top:8px">' + U.esc(hint) + "</p>" +
       warn +
       "</fieldset>" +
+      mcPicker +
 
       "<fieldset><legend>Prüfungsmodus</legend>" +
         '<label class="toggle"><input type="checkbox" id="optPeek"' + (set.peek ? " checked" : "") + ">" +
@@ -143,7 +154,8 @@
         '<label class="toggle"><input type="checkbox" id="optTimer"' + (set.timer ? " checked" : "") + ">" +
           "<span><b>Zeitlimit</b>" +
           '<span class="small muted">' + (set.timer ? "Für diesen Bogen: " + mins + " Minuten. " : "") +
-          "2 Minuten je offener Teilfrage, 1 Minute je MC-Frage. Danach wird automatisch abgegeben.</span></span></label>" +
+          "Die Aufsichtsarbeit dauert in Hessen 120 Minuten; hier anteilig 2 Minuten je offener " +
+          "Teilfrage und 1 Minute je MC-Frage. Danach wird automatisch abgegeben.</span></span></label>" +
         '<label class="toggle"><input type="checkbox" id="optShuffle"' + (set.shuffle ? " checked" : "") + ">" +
           "<span><b>Fragen mischen</b>" +
           '<span class="small muted">Antwortoptionen werden immer gemischt.</span></span></label>' +
@@ -152,9 +164,10 @@
       '<button class="btn primary" id="btnStart" style="width:100%; padding:12px; justify-content:center"' +
       (pool.length ? "" : " disabled") + ">Prüfung starten</button>" +
 
-      '<div class="note"><strong>Punkte nach §15 APVO-RettSan:</strong> offene Frage 2 Punkte ' +
-      "(teilweise richtig 0,5 / 1,0 / 1,5), Multiple Choice 1 Punkt – nur bei genau einer markierten, " +
-      "richtigen Antwort. Bestanden ab 50 %.</div>";
+      '<div class="note"><strong>Hessen (APORettSan):</strong> die schriftliche Prüfung ist eine ' +
+      "Aufsichtsarbeit von 120 Minuten und ist bestanden, wenn sie mindestens mit „ausreichend“ " +
+      "benotet wird (§ 7 Abs. 2). Ein Punkteschema und einen Prozentschlüssel gibt die Verordnung " +
+      "nicht vor – die Punkte hier sind eine Übungshilfe.</div>";
   }
 
   function learnPanel(counts) {

@@ -206,8 +206,12 @@ a.ref:hover{border-color:var(--blue); color:var(--blue)}
 .overview .lbl{width:100%; font-size:.78rem; color:var(--ink-3); margin-bottom:2px}
 
 /* --- Auswertung ---------------------------------------------------------- */
-.score{padding:22px 20px; display:grid; grid-template-columns:auto 1fr; gap:14px 28px; align-items:center}
-@media (max-width:620px){.score{grid-template-columns:1fr}}
+/* Linke Spalte darf die Themenbalken nicht aushungern – beide Spalten
+   bekommen min-width:0 und die rechte eine Mindestbreite. */
+.score{padding:22px 20px; display:grid; grid-template-columns:minmax(0,1.15fr) minmax(250px,1fr);
+       gap:14px 28px; align-items:center}
+.score > *{min-width:0}
+@media (max-width:760px){.score{grid-template-columns:1fr}}
 .score .big{font-size:2.7rem; font-weight:700; line-height:1; letter-spacing:-.02em; font-variant-numeric:tabular-nums}
 .score .big small{font-size:1rem; font-weight:500; color:var(--ink-2); margin-left:6px}
 .grade{font-size:.95rem; color:var(--ink-2); margin-top:6px}

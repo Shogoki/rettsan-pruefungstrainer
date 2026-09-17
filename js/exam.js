@@ -6,9 +6,10 @@
   const E = {};
   RS.exam = E;
 
-  /* Zeitbudget: die APVO gibt für die schriftliche Prüfung 120 Minuten vor.
-     Für kürzere Übungsbögen wird anteilig gerechnet: 1 Minute je MC-Frage,
-     2 Minuten je offener (Teil-)Frage. */
+  /* Zeitbudget: § 7 Abs. 2 APORettSan (Hessen) gibt für die schriftliche
+     Prüfung eine Aufsichtsarbeit von 120 Minuten vor. Für kürzere Übungsbögen
+     wird anteilig gerechnet: 1 Minute je MC-Frage, 2 Minuten je offener
+     (Teil-)Frage. */
   const MS_MC = 60000, MS_OPEN = 120000, EXAM_MS = 120 * 60000;
 
   E.budget = function (ids) {
@@ -32,23 +33,44 @@
     });
   };
 
-  /* Reihenfolge so bauen, dass MC höchstens die Hälfte der Aufgaben stellt
-     (§14 APVO-RettSan: "Höchstens 50 Prozent der Prüfungsfragen dürfen
-     Multiple-Choice-Fragen sein"). */
-  function buildPruefung(pool, count, shuffle) {
+  /* Bogen aus MC- und offenen Aufgaben mischen.
+
+     Hessen schreibt – anders als etwa Niedersachsen – KEINEN Höchstanteil an
+     Multiple-Choice-Fragen vor: nach § 7 Abs. 2 APORettSan bestimmt das
+     vorsitzende Mitglied des Prüfungsausschusses die Fragen auf Vorschlag der
+     Ausbildungsstätte. Der Anteil ist deshalb hier einstellbar (`mcShare`,
+     0–100 %) und wird nicht per Gesetz gedeckelt. Fehlt es an Aufgaben einer
+     Sorte, wird mit der anderen aufgefüllt. */
+  function buildPruefung(pool, count, shuffle, mcShare) {
     const mc = pool.filter(function (q) { return q.kind === "mc"; });
     const rest = pool.filter(function (q) { return q.kind !== "mc"; });
     const mcList = shuffle ? U.shuffle(mc) : mc.slice();
     const restList = shuffle ? U.shuffle(rest) : rest.slice();
 
     const total = count > 0 ? Math.min(count, pool.length) : pool.length;
-    let wantMC = Math.min(mcList.length, Math.floor(total / 2));
+    const share = typeof mcShare === "number" ? mcShare : 50;
+
+    let wantMC = Math.min(mcList.length, Math.round((total * share) / 100));
     let wantRest = Math.min(restList.length, total - wantMC);
-    /* Fehlt es an offenen Fragen, darf MC den Rest NICHT auffüllen –
-       sonst wären mehr als 50 % Multiple Choice. */
+    /* Rest auffüllen, wenn eine Sorte nicht reicht. */
+    if (wantMC + wantRest < total) wantMC = Math.min(mcList.length, total - wantRest);
+
     const picked = mcList.slice(0, wantMC).concat(restList.slice(0, wantRest));
     return shuffle ? U.shuffle(picked) : picked;
   }
+
+  /* Wie sich ein Bogen bei der aktuellen Einstellung zusammensetzt –
+     für die Vorschau im Startbildschirm. */
+  E.preview = function (pool, count, mcShare) {
+    const mcAvail = pool.filter(function (q) { return q.kind === "mc"; }).length;
+    const restAvail = pool.length - mcAvail;
+    const total = count > 0 ? Math.min(count, pool.length) : pool.length;
+    const share = typeof mcShare === "number" ? mcShare : 50;
+    let wantMC = Math.min(mcAvail, Math.round((total * share) / 100));
+    let wantRest = Math.min(restAvail, total - wantMC);
+    if (wantMC + wantRest < total) wantMC = Math.min(mcAvail, total - wantRest);
+    return { mc: wantMC, offen: wantRest, gesamt: wantMC + wantRest, verfuegbar: pool.length };
+  };
 
   E.start = function (opts) {
     const st = S.state;
@@ -61,7 +83,7 @@
     } else {
       const pool = E.pool(mode, topics);
       if (mode === "pruefung") {
-        list = buildPruefung(pool, opts.count, opts.shuffle);
+        list = buildPruefung(pool, opts.count, opts.shuffle, opts.mcShare);
       } else {
         list = opts.shuffle ? U.shuffle(pool) : pool.slice();
         if (opts.count > 0) list = list.slice(0, opts.count);

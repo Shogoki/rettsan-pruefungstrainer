@@ -2,7 +2,7 @@
    App-Dateien werden bei der Installation gecacht; die Zusammenfassungen
    (PDF, zusammen ca. 10 MB) erst, wenn sie tatsächlich geöffnet wurden. */
 
-const VERSION = "v1";
+const VERSION = "v2";
 const SHELL = "rettsan-shell-" + VERSION;
 const DOCS = "rettsan-docs";          /* überlebt App-Updates */
 const FONTS = "rettsan-fonts";

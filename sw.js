@@ -1,10 +1,13 @@
 /* Service Worker – macht die App offline nutzbar.
    App-Dateien werden bei der Installation gecacht; die Zusammenfassungen
-   (PDF, zusammen ca. 10 MB) erst, wenn sie tatsächlich geöffnet wurden. */
+   (PDF, zusammen ca. 11 MB) erst, wenn sie tatsächlich geöffnet wurden. */
 
-const VERSION = "v4";
+const VERSION = "v5";
 const SHELL = "rettsan-shell-" + VERSION;
-const DOCS = "rettsan-docs";          /* überlebt App-Updates */
+/* Die PDFs überleben App-Updates. DOCS_VERSION nur erhöhen, wenn sich eine
+   Zusammenfassung ändert – dann wird der alte Stand verworfen. */
+const DOCS_VERSION = "2";
+const DOCS = "rettsan-docs-" + DOCS_VERSION;
 const FONTS = "rettsan-fonts";
 
 const ASSETS = [
@@ -46,7 +49,8 @@ self.addEventListener("activate", (e) => {
   e.waitUntil(
     caches.keys()
       .then((keys) => Promise.all(
-        keys.filter((k) => k.startsWith("rettsan-shell-") && k !== SHELL)
+        keys.filter((k) => (k.startsWith("rettsan-shell-") && k !== SHELL) ||
+                           (k.startsWith("rettsan-docs") && k !== DOCS))
             .map((k) => caches.delete(k))
       ))
       .then(() => self.clients.claim())

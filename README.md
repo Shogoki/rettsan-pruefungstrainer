@@ -17,13 +17,14 @@ Bogen unter Zeit, der dir Punkte, Note und die schwachen Themen zeigt.
 
 | | Anzahl | Punkte |
 |---|---:|---:|
-| Offene Fragen | 125 | je 2 |
-| Fallbeispiele (49 Teilfragen) | 14 | je 2 pro Teilfrage |
-| Multiple-Choice-Fragen | 108 | je 1 |
-| **Gesamt** | **247 Aufgaben** | **456 Punkte** |
+| Offene Fragen | 178 | je 2 |
+| Fallbeispiele (69 Teilfragen) | 19 | je 2 pro Teilfrage |
+| Multiple-Choice-Fragen | 201 | je 1 |
+| **Gesamt** | **398 Aufgaben** | **695 Punkte** |
 
-Themen: Respiratorische Notfälle · Herz-Kreislauf & Schock · Anatomie & Physiologie ·
-Pharmakologie · Infektionen & Hygiene · Untersuchung & Einsatzablauf · Fallbeispiele.
+Themen: Respiratorische Notfälle · Herz-Kreislauf & Schock · Gastrointestinale Notfälle ·
+Traumatologische Notfälle · Neurologische Notfälle · Anatomie & Physiologie · Pharmakologie ·
+Infektionen & Hygiene · Untersuchung & Einsatzablauf · Fallbeispiele.
 
 ## Die vier Modi
 
@@ -127,7 +128,7 @@ Alle Fragen stammen aus drei eigenen Lernzusammenfassungen, die als PDF unter `d
 
 | Kürzel | Datei | ursprünglicher Name | Inhalt |
 |---|---|---|---|
-| `N` | `data/notfaelle.pdf` | Notfälle.pdf | Respiratorische Notfälle, Schock, Herz-Kreislauf |
+| `N` | `data/notfaelle.pdf` | Notfälle.pdf | Respiratorische Notfälle, Schock, Herz-Kreislauf, Gastrointestinale, traumatologische und neurologische Notfälle |
 | `K` | `data/der-koerper.pdf` | RetSan Der Körper.pdf | Anatomie/Physiologie, Pharmakologie, Infektionen |
 | `U` | `data/untersuchung.pdf` | RetSan Untersuchung.pdf | 4S, xABCDE, STU, SAMPLER, BEFAST |
 
@@ -150,6 +151,16 @@ reinen Textextraktion nicht auf, zum Beispiel:
 - die Tabellen zu enteralen und parenteralen Applikationswegen (Der Körper, S. 12)
 - das Schema zur Fremdkörperaspiration mit der Unterscheidung Säugling/Kind (Notfälle, S. 8)
 - die Entstehung von COPD und Lungenemphysem (Notfälle, S. 4)
+- die Schmerzlokalisation bei akuten Bauchschmerzen nach Bauchregionen (Notfälle, S. 18)
+
+Einige Überschriften in `Notfälle.pdf` sind noch ohne Inhalt – etwa Notfälle bei Diabetes
+mellitus, Verbrennungen, Hitze- und Kälteschäden, Bandscheibenvorfall oder Notfälle bei
+Kindern. Dazu gibt es bewusst keine Fragen, bis die Zusammenfassung sie füllt.
+
+Wo sich die Zusammenfassungen untereinander widersprechen, zeigt der Katalog beide Angaben
+mit Quelle. Derzeit betrifft das die Grenze der Tachykardie: `Notfälle.pdf` nennt im
+Abschnitt Herzrhythmusstörungen > 100/min in Ruhe (Normwert 60–100/min), `Untersuchung.pdf`
+und `Der Körper.pdf` nennen > 80/min.
 
 Wo der Unterricht von der Zusammenfassung abweicht, gilt der Unterricht – geändert wird dann
 in `js/data/`, nicht hier.
@@ -260,6 +271,8 @@ denn dann hat sich auch der Lernstoff geändert.
 | Farben | Tokens in `:root` in `css/app.css` |
 
 Nach Änderungen an den Dateien `VERSION` in `sw.js` erhöhen, damit der Offline-Cache erneuert wird.
+Wurde eine Zusammenfassung unter `data/` ausgetauscht, zusätzlich `DOCS_VERSION` erhöhen –
+die PDFs liegen in einem eigenen Cache, der App-Updates sonst überdauert.
 
 ## Deployment
 

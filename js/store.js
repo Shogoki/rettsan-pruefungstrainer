@@ -15,6 +15,29 @@
   const S = {};
   RS.store = S;
 
+  /* Themen, die es gab, bevor sich der Zustand gemerkt hat, welche Themen
+     er kennt (`knownTopics`). Wer vorher gespeichert hat, bekommt alle
+     später hinzugekommenen Themen automatisch angehakt. */
+  const TOPICS_BEFORE_KNOWN = [
+    "Respiratorische Notfälle", "Herz-Kreislauf & Schock", "Anatomie & Physiologie",
+    "Pharmakologie", "Infektionen & Hygiene", "Untersuchung & Einsatzablauf", "Fallbeispiele",
+  ];
+
+  /* Gespeicherte Themenauswahl an den aktuellen Katalog anpassen:
+     verschwundene Themen entfernen, neue Themen hinzufügen – ein bewusst
+     abgewähltes Thema bleibt abgewählt, weil es schon bekannt war. */
+  function syncTopics(set) {
+    const known = Array.isArray(set.knownTopics) ? set.knownTopics : TOPICS_BEFORE_KNOWN;
+    set.topics = (Array.isArray(set.topics) ? set.topics : []).filter(function (t) {
+      return RS.TOPICS.indexOf(t) >= 0;
+    });
+    RS.TOPICS.forEach(function (t) {
+      if (known.indexOf(t) < 0 && set.topics.indexOf(t) < 0) set.topics.push(t);
+    });
+    if (!set.topics.length) set.topics = RS.TOPICS.slice();
+    set.knownTopics = RS.TOPICS.slice();
+  }
+
   /* ---------- Grundzustand ---------- */
   function fresh() {
     return {
@@ -22,6 +45,7 @@
       settings: {
         mode: "lernen",
         topics: RS.TOPICS.slice(),
+        knownTopics: RS.TOPICS.slice(),
         count: 10,
         peek: false,
         timer: false,
@@ -51,11 +75,9 @@
       state.settings = Object.assign(fresh().settings, p.settings || {});
       state.stats = p.stats || {};
       state.history = Array.isArray(p.history) ? p.history : [];
-      /* Themen, die es nicht mehr gibt, aussortieren. */
-      state.settings.topics = state.settings.topics.filter(function (t) {
-        return RS.TOPICS.indexOf(t) >= 0;
-      });
-      if (!state.settings.topics.length) state.settings.topics = RS.TOPICS.slice();
+      /* Veraltete Themen aussortieren, neue Themen dazunehmen. */
+      state.settings.knownTopics = (p.settings || {}).knownTopics;
+      syncTopics(state.settings);
       /* Fragen, die aus dem Katalog verschwunden sind, aus der Session werfen. */
       if (state.session && Array.isArray(state.session.order)) {
         state.session.order = state.session.order.filter(function (id) { return !!RS.BY_ID[id]; });
@@ -79,6 +101,8 @@
     if (Array.isArray(old.topics)) {
       const keep = old.topics.filter(function (t) { return RS.TOPICS.indexOf(t) >= 0; });
       if (keep.length) state.settings.topics = keep;
+      delete state.settings.knownTopics;
+      syncTopics(state.settings);
     }
     save();
   }
@@ -202,8 +226,8 @@
     if (Array.isArray(p.history)) state.history = p.history;
     if (p.settings && typeof p.settings === "object") {
       state.settings = Object.assign(state.settings, p.settings);
-      state.settings.topics = (state.settings.topics || []).filter(function (t) { return RS.TOPICS.indexOf(t) >= 0; });
-      if (!state.settings.topics.length) state.settings.topics = RS.TOPICS.slice();
+      state.settings.knownTopics = p.settings.knownTopics;
+      syncTopics(state.settings);
     }
     saveNow();
   };
